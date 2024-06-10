@@ -19,5 +19,7 @@ make
 Some usefull features:
 ```
 set_mode mode(sw_emu/hw_emu/hw)
+example: set_mode sw_emu
 set_type type(double/float/int)
+example: set_type float
 ```
