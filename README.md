@@ -3,6 +3,8 @@
 
 Getting Started
 ------------------
+This program requires directory external/CLI11
+
 
 Each time you are working on this project, you must set up the software environment first.
 
