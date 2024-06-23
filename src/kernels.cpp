@@ -10,7 +10,7 @@
 
 #define DATA_SIZE 1
 
-__DATATYPE__ sin_App(__DATATYPE__ x) {
+__DATATYPE__ sin_App(__DATATYPE__ x) { //Sin Taylor Expansion
     #pragma HLS inline off
     #pragma HLS PIPELINE
     __DATATYPE__ aa = x*x;
@@ -22,7 +22,7 @@ __DATATYPE__ sin_App(__DATATYPE__ x) {
     return dd;
 }
 
-__DATATYPE__ asin_App(__DATATYPE__ x) {
+__DATATYPE__ asin_App(__DATATYPE__ x) { // ArcSin Taylor Expansion
     #pragma HLS inline off
     #pragma HLS PIPELINE
     __DATATYPE__ aaa = x*x;
@@ -92,7 +92,8 @@ void write_result(Parameters * out, hls::stream<Parameters>& outStream, int size
 
     static hls::stream<Triplet> inStream("input_stream");
     static hls::stream<Parameters> outStream("output_stream");
-
+    #pragma HLS STREAM variable = inStream depth = 9 
+    #pragma HLS STREAM variable = outStream depth = 4
     // dataflow pragma instruct compiler to run following three APIs in parallel
     read_input(in, inStream, size);
     compute_operation(inStream, outStream, size);
